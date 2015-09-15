@@ -10,6 +10,12 @@ gem install data_filter
 
 ## Usage
 
+`DataFilter::FilterSet::create` provides a DSL for creating a collection
+of filters which can be applied to your data. The DSL is designed to be
+controller friendly and will only apply filters if a parameter is specified.
+If a filter doesn't do what you need then you can pass any object that responds
+to `#call` (e.g. a lambda) to `add_filter`.
+
 ```rb
 filter_set = DataFilter::FilterSet.create do
   # Fuzzy comparison
@@ -25,7 +31,7 @@ filter_set = DataFilter::FilterSet.create do
   range_filter :age, ceiling: params[:max_age]
 
   # Add a custom filter
-  add_filter -> (user) { user.student || user.age > 25 }
+  add_filter -> (user) { user if user.student || user.age > 25 }
 end
 
 data = [
