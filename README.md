@@ -1,5 +1,9 @@
 # DataFilter
 
+[![Gem Version](https://badge.fury.io/rb/data_filter.svg)](http://badge.fury.io/rb/data_filter)
+[![Build Status](https://travis-ci.org/backupify/data_filter.svg)](https://travis-ci.org/backupify/data_filter)
+[![Coverage Status](https://coveralls.io/repos/backupify/data_filter/badge.svg?branch=master&service=github)](https://coveralls.io/github/backupify/data_filter?branch=master)
+
 an extensible DSL for filtering data sets
 
 ## Installation
