@@ -48,6 +48,14 @@ data = [
 filter_set.call(data)
 ```
 
+## Changelog
+
+```
+* v0.2.0
+
+- Fix RangeOverlapFilter edge cases
+```
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
