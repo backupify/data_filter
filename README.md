@@ -35,13 +35,16 @@ filter_set = DataFilter::FilterSet.create do
   # Check if within range
   range_filter :age, ceiling: params[:max_age]
 
+  # Check if ranges overlap
+  range_filter :start, :end, floor: Date.parse('2015-01-01')
+
   # Add a custom filter
   add_filter -> (user) { user if user.student || user.age > 25 }
 end
 
 data = [
-  User.create(name: 'Josh', age: 26, student: false, gender: :male),
-  User.create(name: 'Lauren', age: 25, student: true, gender: :female)
+  User.create(name: 'Josh', age: 26, student: false, gender: :male, start: Date.parse('2007-01-01'), end: Date.parse('2013-01-01')),
+  User.create(name: 'Lauren', age: 25, student: true, gender: :female, start: Date.parse('2008-01-01'), end: Date.parse('2016-01-01'))
 ]
 
 # By default data which doesn't match all of the filters will be filtered out
