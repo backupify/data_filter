@@ -9,7 +9,7 @@ an extensible DSL for filtering data sets
 
 ## Installation
 
-```rb
+```
 gem install data_filter
 ```
 
