@@ -7,6 +7,10 @@
 
 an extensible DSL for filtering data sets
 
+## Summary
+
+`DataFilter` is a library for creating filters that are consistent, reusable, and easy to read. A filter is simply something that decides whether or not an element should be removed from a set. For example, we could create a `DataFilter::FilterSet` that is comprised of various filters and then pass an array into the filter set. The filter set will then remove elements that do not pass each of the filters.
+
 ## Installation
 
 ```
