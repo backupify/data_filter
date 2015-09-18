@@ -91,10 +91,10 @@ module DataFilter
     describe 'nil default' do
       it 'treats nil like the nil default' do
         @f = DataFilter::RangeFilter.new(:item_count, floor: 1, nil_default: 0)
-        assert_filter 0
+        assert_filter nil
 
-        @f = DataFilter::RangeFilter.new(:item_count, floor: 1, nil_default: 0)
-        assert_match 2
+        @f = DataFilter::RangeFilter.new(:item_count, floor: 1, nil_default: 2)
+        assert_match nil
       end
     end
   end
