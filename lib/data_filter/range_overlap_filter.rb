@@ -45,8 +45,25 @@ module DataFilter
 
     # :nodoc:
     def in_range?(actual_start, actual_end)
+      return true if @floor.nil? && @ceiling.nil?
       return false if actual_start.nil? || actual_end.nil?
-      (@floor..@ceiling).overlaps?(actual_start..actual_end)
+
+      # TODO should this sort the start and end?
+      # by default Ranges like (2..0) will have no elements
+      actual_range = (actual_start..actual_end)
+
+      if @floor.nil?
+        actual_range.include?(@ceiling) || actual_range.max <= @ceiling
+      elsif @ceiling.nil?
+        actual_range.include?(@floor) || actual_range.min >= @floor
+      else
+        overlaps?((@floor..@ceiling), actual_range)
+      end
+    end
+
+    # Snipped from ActiveSupport
+    def overlaps?(range_a, range_b)
+      range_a.include?(range_b.first) || range_b.include?(range_a.first)
     end
   end
 end
