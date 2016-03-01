@@ -7,5 +7,6 @@ require 'data_filter/range_filter'
 require 'data_filter/like_filter'
 require 'data_filter/range_overlap_filter'
 require 'data_filter/truthy_filter'
+require 'data_filter/prefix_filter'
 
 module DataFilter; end
