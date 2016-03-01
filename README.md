@@ -58,6 +58,10 @@ filter_set.call(data)
 ## Changelog
 
 ```
+* v0.2.1
+
+- Added PrefixFilter
+
 * v0.2.0
 
 - Fix RangeOverlapFilter edge cases

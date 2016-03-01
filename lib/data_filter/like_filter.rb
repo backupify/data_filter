@@ -36,12 +36,12 @@ module DataFilter
       when Hash
         match?(actual.values.flatten, search_term)
       when Array
-        actual.any? {|item| match?(item, search_term)}
+        actual.any? { |item| match?(item, search_term) }
       when String
         regexp =
           normalize(search_term, true)
             .split(' ')
-            .map {|term| Regexp.escape(term)}
+            .map { |term| Regexp.escape(term) }
             .join('|')
             .insert(0, '(')
             .insert(-1, ')')
