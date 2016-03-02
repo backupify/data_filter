@@ -58,6 +58,10 @@ filter_set.call(data)
 ## Changelog
 
 ```
+* v0.3.1
+
+- Extend DSL with PrefixFilter
+
 * v0.3.0
 
 - Added PrefixFilter

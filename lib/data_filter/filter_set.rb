@@ -98,6 +98,18 @@ module DataFilter
         end
       end
 
+      # Adds a {DataFilter::PrefixFilter} to the filter set
+      #
+      # @param field_sym [Symbol] name of the data method we want
+      #   to filter
+      # @option opts [Object] :by the value we want to use when
+      #   filtering the data item
+      def prefix_filter(field_sym, opts = {})
+        if opts[:by]
+          @filters << PrefixFilter.new(field_sym, opts[:by])
+        end
+      end
+
       # Adds a {DataFilter::KeywordFilter} to the filter set
       #
       # @param field_syms [Array<Symbol>] a collection of all of the data
