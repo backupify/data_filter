@@ -30,6 +30,9 @@ filter_set = DataFilter::FilterSet.create do
   # Fuzzy comparison
   like_filter :name, by: params[:name]
 
+  # Fuzzy comparison with custom normalization
+  like_filter :name, by: params[:name], normalize_regex: /[^\w\s^@^.^+^-]/
+
   # Keyword search
   keyword_filter [:gender], by: params[:gender]
 
