@@ -92,9 +92,9 @@ module DataFilter
       #   to filter
       # @option opts [Object] :by the value we want to use when
       #   filtering the data item
-      def like_filter(field_sym, opts = {})
+      def like_filter(field_sym, opts = {}, normalize_regex = /[^\w\s]/)
         if opts[:by]
-          @filters << LikeFilter.new(field_sym, opts[:by])
+          @filters << LikeFilter.new(field_sym, opts[:by], normalize_regex)
         end
       end
 
