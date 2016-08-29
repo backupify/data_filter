@@ -95,5 +95,12 @@ module DataFilter
       el = OpenStruct.new(name: {:alias => 'Super Hash'})
       assert_equal el, filter.call(el)
     end
+
+    it 'allows custom regex' do
+      # email characters in both filter and data
+      filter = DataFilter::LikeFilter.new(:from, 'test-user+person@datto.com', /[^\w\s^.^@^-]/)
+      el = OpenStruct.new(from: 'test-user+person@datto.com')
+      assert_equal el, filter.call(el)
+    end
   end
 end
