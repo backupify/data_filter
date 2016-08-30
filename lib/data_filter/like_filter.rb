@@ -14,10 +14,10 @@ module DataFilter
     #   filtering the data item
     # @param normalize_regex [regex] the optional regular
     #   expression for normalizing the string to search
-    def initialize(field_sym, search_term, normalize_regex = /[^\w\s]/)
+    def initialize(field_sym, search_term, normalize_regex = nil)
       @field_sym = field_sym
       @search_term = search_term
-      @normalize_regex = normalize_regex.nil? ? /[^\w\s]/ : normalize_regex
+      @normalize_regex = normalize_regex || /[^\w\s]/
     end
 
     # Filters the item
