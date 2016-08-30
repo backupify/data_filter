@@ -61,6 +61,10 @@ filter_set.call(data)
 ## Changelog
 
 ```
+* v0.4.0
+
+- Added :normalize_regex option to LikeFilter
+
 * v0.3.1
 
 - Extend DSL with PrefixFilter
