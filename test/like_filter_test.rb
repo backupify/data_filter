@@ -102,5 +102,12 @@ module DataFilter
       el = OpenStruct.new(from: 'test-user+person@datto.com')
       assert_equal el, filter.call(el)
     end
+
+    it 'allows custom regex to be nil' do
+      # email characters in both filter and data
+      filter = DataFilter::LikeFilter.new(:from, 'Bobs Burgers', nil)
+      el = OpenStruct.new(from: 'Bobs Burgers')
+      assert_equal el, filter.call(el)
+    end
   end
 end
