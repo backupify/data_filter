@@ -17,7 +17,7 @@ module DataFilter
     def initialize(field_sym, search_term, normalize_regex = /[^\w\s]/)
       @field_sym = field_sym
       @search_term = search_term
-      @normalize_regex = normalize_regex
+      @normalize_regex = normalize_regex.nil? ? /[^\w\s]/ : normalize_regex
     end
 
     # Filters the item
