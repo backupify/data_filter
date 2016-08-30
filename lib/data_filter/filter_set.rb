@@ -91,10 +91,11 @@ module DataFilter
       # @param field_sym [Symbol] name of the data method we want
       #   to filter
       # @option opts [Object] :by the value we want to use when
-      #   filtering the data item
+      #   filtering the data item, :normalize_regex the regular
+      #   expression used to normalize the string
       def like_filter(field_sym, opts = {})
         if opts[:by]
-          @filters << LikeFilter.new(field_sym, opts[:by])
+          @filters << LikeFilter.new(field_sym, opts[:by], opts[:normalize_regex])
         end
       end
 

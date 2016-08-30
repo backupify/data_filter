@@ -12,9 +12,12 @@ module DataFilter
     #   to filter
     # @param search_term [String] the value we want to use when
     #   filtering the data item
-    def initialize(field_sym, search_term)
+    # @param normalize_regex [regex] the optional regular
+    #   expression for normalizing the string to search
+    def initialize(field_sym, search_term, normalize_regex = /[^\w\s]/)
       @field_sym = field_sym
       @search_term = search_term
+      @normalize_regex = normalize_regex
     end
 
     # Filters the item
@@ -52,9 +55,9 @@ module DataFilter
     def normalize(str, use_cache = false)
       if use_cache
         @normalize_cache ||= {}
-        @normalize_cache[str] ||= str.gsub(/[^\w\s]/, ' ')
+        @normalize_cache[str] ||= str.gsub(@normalize_regex, ' ')
       else
-        str.gsub(/[^\w\s]/, ' ')
+        str.gsub(@normalize_regex, ' ')
       end
     end
   end
